@@ -101,17 +101,16 @@ class Application(models.Model):
     MID_DETAIL = 'mid_detail'
     AUTHOR = 'author'
     CATEGORIES = (
-        (SKETCH, 'Эскизный проект'),
-        (MID_DETAIL, 'Средняя детализация'),
+        (SKETCH, 'проект'),
+        (MID_DETAIL, 'детализация'),
         (AUTHOR, 'Авторский интерьер'),
     )
 
-    category = models.CharField(max_length=30, choices=CATEGORIES, default='Эскизный проект', help_text='Категории',
+    category = models.CharField(max_length=30, choices=CATEGORIES, default='проект', help_text='Категории',
                                 verbose_name='Категории')
-    # category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True, blank=True,
-    #                              verbose_name='Категории')
 
-    def get_absolute_url(self):  # Тут мы создали новый метод
+
+    def get_absolute_url(self):
         return reverse('profile_application_detail', args=[str(self.id)])
 
     def __str__(self):

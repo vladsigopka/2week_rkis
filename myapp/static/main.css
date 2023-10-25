@@ -19,6 +19,9 @@ header {
 
 li {
     list-style-type: none;
+    border: 1px solid white;
+    border-radius: 10px;
+    margin-left: 5px;
 }
 
 header a {
